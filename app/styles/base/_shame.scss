@@ -23,24 +23,6 @@ body {
   }
 }
 
-// Running into an issue where I'm unable to align the edge of the absolutely positioned
-// .cover-user-info area to 'right: 0', this hacky solution instead sets the max-width
-// to match that of the container. More elegant solution is needed.
-.cover-user-info {
-  @media (min-width: 544px) {
-    max-width: 576px;
-  }
-  @media (min-width: 768px) {
-    max-width: 720px;
-  }
-  @media (min-width: 992px) {
-    max-width: 940px;
-  }
-  @media (min-width: 1200px) {
-    max-width: 1140px;
-  }
-}
-
 // No idea why, but the library content width for some reason isn't getting set.
 // A fix for this issue would be great.
 .container {

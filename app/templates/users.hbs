@@ -1,108 +1,95 @@
 {{! @TODO: Componentize }}
 <div class="user-cover no-edit">
-  <div class="cover-photo" style={{coverImageStyle}}>
-    <div class="container">
-      <div class="row">
-        <div class="cover-user-info">
-          <div class="primary-info">
-            <div class="cover-avatar avatar">
-              <img src={{image user.avatar "large"}} class="avatar-image avatar-image--large">
-            </div>
-            <div class="mini-bio">
-              <h3 class="cover-username" data-test-username>
-                {{user.name}}
-                {{user-badge user}}
-              </h3>
-              <div class="cover-cta">
-                {{#if (not (is-self user))}}
-                  {{follow-button user=user relationship=follow loading=fetchFollowTask.isRunning}}
-                {{/if}}
+  <div class="cover-user-info">
+    <div class="primary-info">
+      <div class="cover-avatar avatar">
+        <img src={{image user.avatar "large"}} class="avatar-image avatar-image--large">
+      </div>
+      <div class="mini-bio">
+        <h3 class="cover-username" data-test-username>
+          {{user.name}}
+          {{user-badge user}}
+        </h3>
+        <div class="cover-cta">
+          {{#if (not (is-self user))}}
+            {{follow-button user=user relationship=follow loading=fetchFollowTask.isRunning}}
+          {{/if}}
 
-                {{! edit button }}
-                {{#if (can "edit user" user)}}
-                  <button class="button button--light-outline" onclick={{action (toggle "isEditing" this)}}>
-                    <span class="button-label button-defaultState">{{t "users.profile.edit"}}</span>
-                  </button>
-                  {{#if isEditing}}
-                    {{to-elsewhere named="modal" send=(component "users/edit-profile"
-                      user=user
-                      modalId="edit-profile-modal"
-                      onClose=(toggle-action "isEditing" this))}}
-                  {{/if}}
-                {{/if}}
+          {{! edit button }}
+          {{#if (can "edit user" user)}}
+            <button class="button button--light-outline" onclick={{action (toggle "isEditing" this)}}>
+              <span class="button-label button-defaultState">{{t "users.profile.edit"}}</span>
+            </button>
+            {{#if isEditing}}
+              {{to-elsewhere named="modal" send=(component "users/edit-profile"
+                user=user
+                modalId="edit-profile-modal"
+                onClose=(toggle-action "isEditing" this))}}
+            {{/if}}
+          {{/if}}
 
-                {{#if (or follow (and session.hasUser (not (is-self user))))}}
-                  {{users/user-actions user=user follow=follow}}
-                {{/if}}
+          {{#if (or follow (and session.hasUser (not (is-self user))))}}
+            {{users/user-actions user=user follow=follow}}
+          {{/if}}
 
-                {{! admin actions }}
-                {{#if (can "view admin" user)}}
-                  {{#bootstrap/bs-dropdown class="d-inline" as |dropdown|}}
-                    {{#dropdown.button class="button--light-outline button--outline"}}
-                      {{t "users.admin.button"}}
-                    {{/dropdown.button}}
-                    {{#dropdown.menu}}
-                      {{#dropdown.menu-item onClick=(action (toggle "isViewingPastNames" this))}}
-                        {{t "users.admin.past-names"}}
-                      {{/dropdown.menu-item}}
-                      {{#if isViewingPastNames}}
-                        {{to-elsewhere named="modal" send=(component "users/view-past-names"
-                          user=user
-                          modalId="view-past-names-modal"
-                          onClose=(toggle-action "isViewingPastNames" this))}}
-                      {{/if}}
-                      {{#dropdown.menu-item onClick=(action (toggle "isViewingAltAccounts" this))}}
-                        {{t "users.admin.alt-accounts"}}
-                      {{/dropdown.menu-item}}
-                      {{#if isViewingAltAccounts}}
-                        {{to-elsewhere named="modal" send=(component "users/view-alt-accounts"
-                          user=user
-                          modalId="view-alt-accounts-modal"
-                          onClose=(toggle-action "isViewingAltAccounts" this))}}
-                      {{/if}}
-                      {{#dropdown.menu-item onClick=(action (toggle "isDeletingContent" this))}}
-                        {{t "users.admin.delete-content"}}
-                      {{/dropdown.menu-item}}
-                      {{#if isDeletingContent}}
-                        {{to-elsewhere named="modal" send=(component "users/delete-user-content"
-                          user=user
-                          modalId="delete-user-content-modal"
-                          onClose=(toggle-action "isDeletingContent" this))}}
-                      {{/if}}
-                      {{#dropdown.menu-item onClick=(action (toggle "isBanningUser" this))}}
-                        {{t "users.admin.ban"}}
-                      {{/dropdown.menu-item}}
-                      {{#if isBanningUser}}
-                        {{to-elsewhere named="modal" send=(component "users/ban-user"
-                          user=user
-                          modalId="ban-user-modal"
-                          onClose=(toggle-action "isBanningUser" this))}}
-                      {{/if}}
-                      {{#dropdown.menu-item onClick=(action (toggle "isUnbanningUser" this))}}
-                        {{t "users.admin.unban"}}
-                      {{/dropdown.menu-item}}
-                      {{#if isUnbanningUser}}
-                        {{to-elsewhere named="modal" send=(component "users/unban-user"
-                          user=user
-                          modalId="unban-user-modal"
-                          onClose=(toggle-action "isUnbanningUser" this))}}
-                      {{/if}}
-                    {{/dropdown.menu}}
-                  {{/bootstrap/bs-dropdown}}
+          {{! admin actions }}
+          {{#if (can "view admin" user)}}
+            {{#bootstrap/bs-dropdown class="d-inline" as |dropdown|}}
+              {{#dropdown.button class="button--light-outline button--outline"}}
+                {{t "users.admin.button"}}
+              {{/dropdown.button}}
+              {{#dropdown.menu}}
+                {{#dropdown.menu-item onClick=(action (toggle "isViewingPastNames" this))}}
+                  {{t "users.admin.past-names"}}
+                {{/dropdown.menu-item}}
+                {{#if isViewingPastNames}}
+                  {{to-elsewhere named="modal" send=(component "users/view-past-names"
+                    user=user
+                    modalId="view-past-names-modal"
+                    onClose=(toggle-action "isViewingPastNames" this))}}
                 {{/if}}
-              </div>
-            </div>
-          </div>
-
-          {{! profile link badges }}
-          <div class="cover-profiles">
-            <div class="about-me-profiles">
-              {{users/profile-links user=user}}
-            </div>
-          </div>
+                {{#dropdown.menu-item onClick=(action (toggle "isViewingAltAccounts" this))}}
+                  {{t "users.admin.alt-accounts"}}
+                {{/dropdown.menu-item}}
+                {{#if isViewingAltAccounts}}
+                  {{to-elsewhere named="modal" send=(component "users/view-alt-accounts"
+                    user=user
+                    modalId="view-alt-accounts-modal"
+                    onClose=(toggle-action "isViewingAltAccounts" this))}}
+                {{/if}}
+                {{#dropdown.menu-item onClick=(action (toggle "isDeletingContent" this))}}
+                  {{t "users.admin.delete-content"}}
+                {{/dropdown.menu-item}}
+                {{#if isDeletingContent}}
+                  {{to-elsewhere named="modal" send=(component "users/delete-user-content"
+                    user=user
+                    modalId="delete-user-content-modal"
+                    onClose=(toggle-action "isDeletingContent" this))}}
+                {{/if}}
+                {{#dropdown.menu-item onClick=(action (toggle "isBanningUser" this))}}
+                  {{t "users.admin.ban"}}
+                {{/dropdown.menu-item}}
+                {{#if isBanningUser}}
+                  {{to-elsewhere named="modal" send=(component "users/ban-user"
+                    user=user
+                    modalId="ban-user-modal"
+                    onClose=(toggle-action "isBanningUser" this))}}
+                {{/if}}
+              {{/dropdown.menu}}
+            {{/bootstrap/bs-dropdown}}
+          {{/if}}
         </div>
       </div>
     </div>
+
+    {{! profile link badges }}
+    <div class="cover-profiles">
+      <div class="about-me-profiles">
+        {{users/profile-links user=user}}
+      </div>
+    </div>
+  </div>
+  <div class="cover-photo" style={{coverImageStyle}}>
     <div class="dark-cover-overlay"></div>
   </div>
 </div>

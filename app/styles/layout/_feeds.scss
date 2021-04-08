@@ -253,6 +253,12 @@
   position: relative;
   z-index: $zIndex--stream-item-block;
 
+  .author-name {
+    display: inline-block;
+    font-size: 16px;
+    font-family: $heading-font-family;
+    font-weight: 700;
+  }
   .author-avatar {
     float: left;
     margin-right: 15px;
@@ -561,13 +567,11 @@
     border-radius: 999em;
   }
   .media-heading {
-    font-size: 14px;
-    margin-bottom: 0;
-    display: inline;
-    float: left;
+    font-size: 15px;
+    margin-bottom: 5px;
+    display: block;
     position: relative;
     top: 3px;
-    margin-right: 5px;
   }
   .media-body {
     font-size: 14px;
