@@ -701,7 +701,7 @@ $primary: #00cc99;
       display: block;
       margin: 5px;
       padding: 0;
-      height: 140px;
+      min-height: 140px;
       border: 1px solid $divider-color;
       color: shade($primary, 70);
       border-radius: 5px;

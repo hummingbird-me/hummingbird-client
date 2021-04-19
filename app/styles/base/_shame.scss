@@ -47,13 +47,6 @@ body {
   width: 100%;
 }
 
-// Somewhat improves visual quality of circle outlines in header
-// For non-retina displays
-.site-search__input,
-.notifications {
-  transform: rotate(0.01deg);
-}
-
 // Need to find the cause of horizontal scroll on mobile devices
 @media (max-width: 554px) {
   .global-container {
