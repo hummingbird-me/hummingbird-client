@@ -74,22 +74,21 @@
   </div>
   <div class="container">
     {{! themes }}
-    {{#if (has-feature "dark_theme")}}
-      <div class="form-group row">
-        <label class="col-xs-4 col-form-label">{{t "settings.index.theme"}}</label>
-        <div class="col-xs-8">
-          {{#power-select
-            renderInPlace=true
-            options=themes
-            selected=selectedTheme
-            searchEnabled=false
-            onchange=(action "changeTheme") as |theme|
-          }}
-            {{theme.text}}
-          {{/power-select}}
-        </div>
+    <div class="form-group row">
+      <label class="col-xs-4 col-form-label">{{t "settings.index.theme"}}</label>
+      <div class="col-xs-8">
+        {{#power-select
+          renderInPlace=true
+          options=themes
+          selected=selectedTheme
+          searchEnabled=false
+          onchange=(action "changeTheme") as |theme|
+        }}
+          {{theme.text}}
+        {{/power-select}}
+        <small>The dark theme is currently in open beta.</small>
       </div>
-    {{/if}}
+    </div>
 
 
     {{! country }}
