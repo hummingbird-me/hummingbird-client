@@ -17,13 +17,13 @@
             {{#if (eq others.length 1)}}
               {{#with (get others "firstObject") as |other|}}
                 {{#if other.actor}}
-                  and <a href={{href-to "users.index" other.actor}}>{{other.actor.name}}</a>
+                  {{t "user-notifications.item.other-actor" href-to=(href-to "users.index" other.actor) name=other.actor.name htmlSafe=true}}
                 {{else}}
-                  and Unknown.
+                  {{t "user-notifications.item.unknown"}}
                 {{/if}}
               {{/with}}
             {{else}}
-              and <strong>{{otherCount}} others</strong>
+              {{t "user-notifications.item.other-actors" count=otherCount htmlSafe=true}}
             {{/if}}
           {{/if}}
         {{/if}}
@@ -31,42 +31,42 @@
         {{! type }}
         {{! TODO(@vevix): Refactor to be better }}
         {{#if (eq activity.verb "follow")}}
-          followed you.
+          {{t "user-notifications.item.followed"}}
         {{else if (eq activity.verb "post")}}
-          mentioned you in a post.
+          {{t "user-notifications.item.mentioned-post"}}
         {{else if (eq activity.verb "comment")}}
           {{#if (eq session.account.id (split-stream-id activity.replyToUser))}}
-            replied to your
+            {{t "user-notifications.item.replied"}}
             {{#if (eq activity.replyToType "comment")}}
-              comment.
+              {{t "user-notifications.item.comment"}}
             {{else}}
-              post.
+              {{t "user-notifications.item.post"}}
             {{/if}}
           {{else if isMentioned}}
-            mentioned you in a comment.
+            {{t "user-notifications.item.mentioned-comment"}}
           {{else}}
-            replied to
+            {{t "user-notifications.item.reply.reply"}}
             {{#if (and activity.target activity.target.user)}}
               {{#if (eq activity.target.user.id activity.actor.id)}}
-                their
+                {{t "user-notifications.item.reply.their"}}
               {{else if (eq activity.target.user.id session.account.id)}}
-                your
+                {{t "user-notifications.item.reply.your"}}
               {{else}}
-                <a href={{href-to "users.index" activity.target.user}}>{{activity.target.user.name}}'s</a>
+                <a href={{href-to "users.index" activity.target.user}}>{{t "user-notifications.item.reply.else" name=activity.target.user.name}}</a>
               {{/if}}
             {{else}}
-              a
+              {{t "user-notifications.item.reply.a"}}
             {{/if}}
-            post.
+            {{t "user-notifications.item.reply.post"}}
           {{/if}}
         {{else if (eq activity.verb "post_like")}}
-          liked your post.
+          {{t "user-notifications.item.liked-post"}}
         {{else if (eq activity.verb "comment_like")}}
-          liked your comment.
+          {{t "user-notifications.item.liked-comment"}}
         {{else if (eq activity.verb "invited")}}
-          invited you to a group.
+          {{t "user-notifications.item.invited"}}
         {{else if (eq activity.verb "vote")}}
-          liked your {{activity.target.media.computedTitle}} reaction.
+          {{t "user-notifications.item.liked-reaction" media=activity.target.media.computedTitle}}
         {{else if (eq activity.verb "aired")}}
           {{#if (and activity.subject (gt activity.subject.number 0))}}
             {{t "user-notifications.aired" type=activity.subject.modelType number=activity.subject.number media=activity.actor.computedTitle}}

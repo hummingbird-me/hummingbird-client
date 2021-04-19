@@ -465,6 +465,8 @@ components:
       followed: "followed"
       delete: "Delete Activity"
     library:
+      other-actor: "and <a href={href-to}>{name}</a>"
+      other-actors: "and <strong>{count} others</strong>"
       delete: "delete"
       deleting: "deleting…"
     post:
@@ -1573,6 +1575,27 @@ user-notifications:
     all: "See All Notifications"
     mark-read: "Mark all as Read"
     none: "You don't have any notifications!"
+  item:
+    other-actor: "and <a href={href-to}>{name}</a>"
+    unknown: "and Unknown."
+    other-actors: "and <strong>{count} others</strong>"
+    followed: "followed you."
+    mentioned-post: "mentioned you in a post."
+    replied: "replied to your"
+    comment: "comment."
+    post: "post."
+    mentioned-comment: "mentioned you in a comment."
+    reply:
+      reply: "replied to"
+      their: "their"
+      your: "your"
+      else: " {name}'s"
+      a: "a"
+      post: "post."
+    liked-post: "liked your post."
+    liked-comment: "liked your comment."
+    invited: "invited you to a group."
+    liked-reaction: "liked your {media} reaction."
 # ember-power-select
 selects:
   loading: "Loading…"
