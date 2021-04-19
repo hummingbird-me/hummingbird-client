@@ -605,6 +605,12 @@ users:
         website:
           about: "Enter your personal website below to add a link to your profile."
           placeholder: "Your website URL"
+        mastodon:
+          about: "Enter your Mastodon profile URL below to add a link to your profile."
+          placeholder: "Your Mastodon profile URL"
+        xmpp:
+          about: "Enter your Jabber/XMPP ID below to add a link to your profile."
+          placeholder: "Your Jabber/XMPP ID"
         twitter:
           about: "Enter your Twitter username below to add a link to your profile."
           placeholder: "Your Twitter username (@Username)"
