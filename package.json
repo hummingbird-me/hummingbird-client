@@ -39,7 +39,7 @@
     "ember-ajax": "5.0.0",
     "ember-apollo-client": "2.0.0-beta.3",
     "ember-auto-import": "~1.2.19",
-    "ember-basic-dropdown": "~1.1.2",
+    "ember-basic-dropdown": "~3.0.19",
     "ember-batcher": "~3.0.0",
     "ember-browsery-stats": "~0.1.1",
     "ember-can": "~1.1.1",
