@@ -105,7 +105,7 @@
     "ember-route-action-helper": "~2.0.8",
     "ember-router-scroll": "~0.7.1",
     "ember-simple-auth": "1.7.0",
-    "ember-sinon": "2.2.0",
+    "ember-sinon": "5.0.0",
     "ember-sortable": "1.11.2",
     "ember-source": "~3.9.0",
     "ember-star-rating": "~3.0.0",
