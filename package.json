@@ -98,7 +98,7 @@
     "ember-parachute": "~1.0.2",
     "ember-photoswipe": "~0.6.0",
     "ember-pikaday": "2.4.1",
-    "ember-power-select": "2.2.1",
+    "ember-power-select": "4.1.6",
     "ember-qunit": "~4.6.0",
     "ember-resolver": "~8.0.2",
     "ember-responsive": "github:wopian/ember-responsive",
