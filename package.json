@@ -82,7 +82,7 @@
     "ember-d3": "~0.5.1",
     "ember-data": "~3.21.0",
     "ember-elsewhere": "1.2.0",
-    "ember-fetch": "~8.0.2",
+    "ember-fetch": "~8.1.0",
     "ember-file-upload": "~3.0.5",
     "ember-flickity": "0.2.0",
     "ember-href-to": "1.15.1",
