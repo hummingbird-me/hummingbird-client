@@ -107,7 +107,7 @@
     "ember-simple-auth": "1.7.0",
     "ember-sinon": "2.2.0",
     "ember-sortable": "1.11.2",
-    "ember-source": "~3.9.0",
+    "ember-source": "~3.27.5",
     "ember-star-rating": "~3.0.0",
     "ember-svg-jar": "2.2.3",
     "ember-test-selectors": "4.0.0",
