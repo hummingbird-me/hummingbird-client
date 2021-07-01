@@ -7029,10 +7029,10 @@ ember-cli-version-checker@^5.0.1, ember-cli-version-checker@^5.0.2, ember-cli-ve
     semver "^7.3.2"
     silent-error "^1.1.1"
 
-ember-cli-workbox@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-workbox/-/ember-cli-workbox-2.0.0.tgz#76feeec467c8d3c5fc51023c1b18f895bcfa023d"
-  integrity sha512-BOWjDY6EhqE9qPPbcEga/z4Y+cl2sSHBxBlJ1iFUNpmiLwsa1UeXulFJ/EdQztbt6CzoFX6js8IPbWGSixWcSw==
+ember-cli-workbox@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-workbox/-/ember-cli-workbox-3.0.0.tgz#9c14110d397db23ddd08d130f718c78e6bf0fd7a"
+  integrity sha512-+dRy/V9C/Ppp9BNwY2NrxRZVgDKXmP98rybsPdcFJorjP0r6HaNLGD3HEMJAdARXo2lnakVpp82CdMbThN9Kbw==
   dependencies:
     broccoli-funnel "^3.0.1"
     broccoli-merge-trees "^4.1.0"
