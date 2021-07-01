@@ -97,7 +97,7 @@
     "ember-one-way-controls": "~3.1.0",
     "ember-parachute": "~1.0.2",
     "ember-photoswipe": "~0.6.0",
-    "ember-pikaday": "2.4.1",
+    "ember-pikaday": "3.0.0",
     "ember-power-select": "2.2.1",
     "ember-qunit": "~4.6.0",
     "ember-resolver": "~8.0.2",

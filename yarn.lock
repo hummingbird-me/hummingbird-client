@@ -6630,7 +6630,7 @@ ember-cli-htmlbars@^3.0.0, ember-cli-htmlbars@^3.0.1:
     json-stable-stringify "^1.0.1"
     strip-bom "^3.0.0"
 
-ember-cli-htmlbars@^4.0.0, ember-cli-htmlbars@^4.0.5, ember-cli-htmlbars@^4.2.3, ember-cli-htmlbars@^4.3.1:
+ember-cli-htmlbars@^4.0.0, ember-cli-htmlbars@^4.0.5, ember-cli-htmlbars@^4.2.2, ember-cli-htmlbars@^4.2.3, ember-cli-htmlbars@^4.3.1:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-4.4.0.tgz#7ca17d5ca8f7550984346d9e6e93da0c3323f8d9"
   integrity sha512-ohgctqk7dXIZR4TgN0xRoUYltWhghFJgqmtuswQTpZ7p74RxI9PKx+E8WV/95mGcPzraesvMNBg5utQNvcqgNg==
@@ -6756,7 +6756,7 @@ ember-cli-mirage@0.4.7:
     pretender "^1.6.1"
     route-recognizer "^0.2.3"
 
-ember-cli-moment-shim@3.8.0, ember-cli-moment-shim@^3.6.0:
+ember-cli-moment-shim@3.8.0, ember-cli-moment-shim@^3.7.1:
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/ember-cli-moment-shim/-/ember-cli-moment-shim-3.8.0.tgz#dc61bbac9dce4963394e60dd42726d4ba38e2bc1"
   integrity sha512-dN5ImjrjZevEqB7xhwFXaPWwxdKGSFiR1kqy9gDVB+A5EGnhCL1uveKugcyJE/MICVhXUAHBUu6G2LFWEPF2YA==
@@ -7533,17 +7533,15 @@ ember-photoswipe@~0.6.0:
     resolve "^1.10.0"
     sass "^1.23.7"
 
-ember-pikaday@2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/ember-pikaday/-/ember-pikaday-2.4.1.tgz#26bfe008c1a758570a8e7e57c4e9c5c2765e11a6"
-  integrity sha512-y9wCIXNkVpDL0yrchtu6YMTd4YXML/K3okVyMlMZn4jGLdKEUZ7gMoMY0Sejlx2Iaj7EqPke+CSbJoEt/w1tYw==
+ember-pikaday@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/ember-pikaday/-/ember-pikaday-3.0.0.tgz#c80c215174cc103fd9324188e00e21f4fc00c9e0"
+  integrity sha512-qn8qOadxA/afFraiEKjrRnkzNDWcbs+vBzcEhBs+Jr8KHd7Bjv4BFzgEe9r1euDXZsurYUN2z1gbyQ++rB4rCQ==
   dependencies:
-    ember-cli-babel "^6.16.0"
-    ember-cli-htmlbars "^3.0.0"
-    ember-cli-moment-shim "^3.6.0"
-    ember-cli-node-assets "^0.2.2"
-    fastboot-transform "^0.1.1"
-    pikaday "^1.5.1"
+    ember-cli-babel "^7.17.2"
+    ember-cli-htmlbars "^4.2.2"
+    ember-cli-moment-shim "^3.7.1"
+    pikaday "^1.8.0"
 
 ember-power-select@2.2.1:
   version "2.2.1"
@@ -8558,7 +8556,7 @@ fast-sourcemap-concat@^2.1.0:
     source-map-url "^0.3.0"
     sourcemap-validator "^1.1.0"
 
-fastboot-transform@^0.1.1, fastboot-transform@^0.1.2, fastboot-transform@^0.1.3:
+fastboot-transform@^0.1.2, fastboot-transform@^0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/fastboot-transform/-/fastboot-transform-0.1.3.tgz#7dea0b117594afd8772baa6c9b0919644e7f7dcd"
   integrity sha512-6otygPIJw1ARp1jJb+6KVO56iKBjhO+5x59RSC9qiZTbZRrv+HZAuP00KD3s+nWMvcFDemtdkugki9DNFTTwCQ==
@@ -12322,7 +12320,7 @@ pify@^4.0.1:
   resolved "https://registry.yarnpkg.com/pify/-/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
 
-pikaday@^1.5.1:
+pikaday@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/pikaday/-/pikaday-1.8.0.tgz#ce930e257042e852e6aadee1115e01554b2d71c5"
   integrity sha512-SgGxMYX0NHj9oQnMaSyAipr2gOrbB4Lfs/TJTb6H6hRHs39/5c5VZi73Q8hr53+vWjdn6HzkWcj8Vtl3c9ziaA==
