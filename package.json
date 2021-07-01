@@ -58,7 +58,7 @@
     "ember-cli-htmlbars": "~4.2.3",
     "ember-cli-inject-live-reload": "~2.0.2",
     "ember-cli-lazysizes": "~0.1.1",
-    "ember-cli-meta-tags": "~5.3.0",
+    "ember-cli-meta-tags": "~6.1.2",
     "ember-cli-mirage": "0.4.7",
     "ember-cli-moment-shim": "3.8.0",
     "ember-cli-node-assets": "~0.2.2",
