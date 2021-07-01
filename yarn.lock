@@ -3757,7 +3757,7 @@ broccoli-merge-trees@^2.0.0:
     broccoli-plugin "^1.3.0"
     merge-trees "^2.0.0"
 
-broccoli-merge-trees@^4.0.1, broccoli-merge-trees@^4.1.0, broccoli-merge-trees@^4.2.0:
+broccoli-merge-trees@^4.0.0, broccoli-merge-trees@^4.0.1, broccoli-merge-trees@^4.1.0, broccoli-merge-trees@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/broccoli-merge-trees/-/broccoli-merge-trees-4.2.0.tgz#692d3c163ecea08c5714a9434d664e628919f47c"
   integrity sha512-nTrQe5AQtCrW4enLRvbD/vTLHqyW2tz+vsLXQe4IEaUhepuMGVKJJr+I8n34Vu6fPjmPLwTjzNC8izMIDMtHPw==
@@ -3918,18 +3918,19 @@ broccoli-plugin@^4.0.1, broccoli-plugin@^4.0.2, broccoli-plugin@^4.0.3:
     rimraf "^3.0.0"
     symlink-or-copy "^1.3.0"
 
-broccoli-postcss-single@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/broccoli-postcss-single/-/broccoli-postcss-single-3.0.0.tgz#1393f87b69e4bbf20a1a1e614e09bbf066db28a2"
-  integrity sha512-+CsV6zdK9CXTplZvQeAsZm7mEh+BwIN6GBzpqm7agqsMZTvW6kkcWDaL2ahG1+Aq2HfLYk1Sam6iQ3jdESNmPA==
+broccoli-postcss-single@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/broccoli-postcss-single/-/broccoli-postcss-single-4.0.1.tgz#21f1494826058c974fd746bba7d10976d9cce26d"
+  integrity sha512-WfIKXqkTNyA0OJuJKoUJ2TxerRvtkiwYEK8KY5gHGr/GGqPHYWVnAUN5/O8/LWBNhgr9M94KstpXe+GqXyEflA==
   dependencies:
     broccoli-caching-writer "^3.0.3"
     include-path-searcher "^0.1.0"
-    mkdirp "^0.5.1"
+    minimist ">=1.2.5"
+    mkdirp "^1.0.3"
     object-assign "^4.1.1"
     postcss "^7.0.0"
 
-broccoli-postcss@^5.0.0:
+broccoli-postcss@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/broccoli-postcss/-/broccoli-postcss-5.1.0.tgz#5b660fa72ba921b01574b4ab10449b20890bba0a"
   integrity sha512-f5cHP5g7EFidu9w88WOLTtbk4dd/W7amK0nek08FkmUII2h4W/Je4EV26HtMEm9nb1hKI301wwuEQ5AQRsVYog==
@@ -6837,15 +6838,14 @@ ember-cli-polyfill-io@~2.0.0:
   dependencies:
     debug "^4.1.1"
 
-ember-cli-postcss@~5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-postcss/-/ember-cli-postcss-5.0.0.tgz#07891b2950e0a6e8b35234d5960575d0471da50a"
-  integrity sha512-znJOyXeYmhDF3DOocfcCUrnGN0iWmDGvMJKTVPszFeBd1/cqx+lSxc1Tx25RAF1KpOyI0FqD1amp6s9lud62EQ==
+ember-cli-postcss@~6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/ember-cli-postcss/-/ember-cli-postcss-6.0.2.tgz#5bd697c514fa4c1ef45a3191b408b238f791a2e4"
+  integrity sha512-Nw2OBL8o65r1FqQFgW1bLM1y4AbZSGVXjHF1xp3CTPr3N5tkKfRqvxBxp6IxEBItFxGv/fNhnDGYoN8xLa4Axg==
   dependencies:
-    broccoli-file-creator "^2.1.1"
-    broccoli-merge-trees "^3.0.0"
-    broccoli-postcss "^5.0.0"
-    broccoli-postcss-single "^3.0.0"
+    broccoli-merge-trees "^4.0.0"
+    broccoli-postcss "^5.1.0"
+    broccoli-postcss-single "^4.0.0"
     ember-cli-babel "^7.1.0"
     merge "^1.2.0"
 
@@ -11464,7 +11464,7 @@ mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@^0.5.3, mkdirp@^0.5.5, mkdirp@~0.5.0, mkdir
   dependencies:
     minimist "^1.2.5"
 
-mkdirp@^1.0.4:
+mkdirp@^1.0.3, mkdirp@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==

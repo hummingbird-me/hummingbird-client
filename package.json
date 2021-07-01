@@ -65,7 +65,7 @@
     "ember-cli-nouislider": "~1.2.1",
     "ember-cli-password-strength": "~2.0.0",
     "ember-cli-polyfill-io": "~2.0.0",
-    "ember-cli-postcss": "~5.0.0",
+    "ember-cli-postcss": "~6.0.2",
     "ember-cli-progress": "~1.0.11",
     "ember-cli-qunit": "~4.4.0",
     "ember-cli-sass": "10.0.1",
