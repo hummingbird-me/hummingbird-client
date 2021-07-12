@@ -18,6 +18,7 @@ export default Route.extend(ApplicationRouteMixin, {
   metrics: service(),
   moment: service(),
   raven: service(),
+  notify: service(),
   cache: storageFor('last-used'),
   local: storageFor('local-cache'),
 
@@ -145,7 +146,7 @@ export default Route.extend(ApplicationRouteMixin, {
   _getCurrentUser() {
     return get(this, 'session').getCurrentUser().then(async user => {
       // user setup
-      await this._loadLanguage(user);
+      await this._loadUserLanguage(user);
       this._loadTheme(user);
       get(this, 'moment').changeTimeZone(get(user, 'timeZone') || moment.tz.guess());
 
@@ -210,6 +211,58 @@ export default Route.extend(ApplicationRouteMixin, {
     });
   },
 
+  async _fetchTranslations(locale) {
+    try {
+      let translationPath = `translations/${locale}.json`;
+
+      if (config.kitsu.isProduction) {
+        const assetMap = await fetch('/assets/assetMap.json');
+        const assetMapJSON = await assetMap.json();
+        translationPath = assetMapJSON.assets[translationPath];
+      }
+
+      return (await fetch(`/${translationPath}`)).json();
+    } catch (error) {
+      const message = `Failed to load translations for ${locale}.`;
+      if (locale !== 'en-us') {
+        get(this, 'notify').warning(`${message} Falling back to en-us.`, { closeAfter: 5000 });
+        this._setLocale('en-us');
+      } else {
+        get(this, 'notify').error(message, { closeAfter: 5000 });
+        console.error(message, error);
+      }
+    }
+  },
+
+  async _setLocale(locale) {
+    get(this, 'intl').addTranslations(locale, await this._fetchTranslations(locale));
+    get(this, 'intl').set('locale', [locale]);
+    get(this, 'moment').setLocale(momentLocale(get(this, locale)));
+    console.error('locale set to: ', get(this, 'intl.locale'));
+  },
+
+  // Load the most suitable available translation
+  async _loadDefaultLanguage() {
+    const locale = preferredLocale(LANGUAGE_CODES, 'en-us', { regionLowerCase: true });
+    this._setLocale(locale);
+  },
+
+  async _loadUserLanguage(user) {
+    const userLocale = get(user, 'language');
+    const localeTranslated = LANGUAGE_CODES.some(locale => userLocale === locale);
+
+    // Don't load the locale twice if user preference is same as browser lamguage preference
+    if (userLocale !== 'en-us' && userLocale === get(this, 'intl.primaryLocale')) return;
+
+    // Validate language field is a translated language on the client
+    if (userLocale && localeTranslated) {
+      this._setLocale(userLocale);
+    } else {
+      // Fall back to default if user-provided language field is not available
+      await this._loadDefaultLanguage();
+    }
+  },
+
   _loadTheme(user) {
     if (get(this, 'cache.theme')) { return; }
 
@@ -224,47 +277,5 @@ export default Route.extend(ApplicationRouteMixin, {
       element.href = window.Kitsu.themes[theme];
       element.dataset.theme = theme;
     }
-  },
-
-  async _fetchTranslations(locale) {
-    let translationPath = `translations/${locale}.json`;
-
-    if (config.kitsu.isProduction) {
-      const assetMap = await fetch('/assets/assetMap.json');
-      const assetMapJSON = await assetMap.json();
-      translationPath = assetMapJSON.assets[translationPath];
-    }
-
-    return (await fetch(`/${translationPath}`)).json();
-  },
-
-  // Load the most suitable available translation
-  async _loadDefaultLanguage() {
-    const locale = preferredLocale(LANGUAGE_CODES, 'en-us', { regionLowerCase: true });
-    get(this, 'intl').addTranslations(locale, await this._fetchTranslations(locale));
-    get(this, 'intl').set('locale', [locale]);
-    this._setLocale();
-  },
-
-  async _loadLanguage(user) {
-    const userLocale = get(user, 'language');
-    const localeTranslated = LANGUAGE_CODES.some(locale => userLocale === locale);
-
-    // Don't load the locale twice if user preference is same as browser lamguage preference
-    if (userLocale !== 'en-us' && userLocale === get(this, 'intl.primaryLocale')) return;
-
-    // Validate language field is a translated language on the client
-    if (userLocale && localeTranslated) {
-      get(this, 'intl').addTranslations(userLocale, await this._fetchTranslations(userLocale));
-      get(this, 'intl').set('locale', [userLocale]);
-      this._setLocale();
-    } else {
-      // Fall back to default if user-provided language field is not available
-      await this._loadDefaultLanguage();
-    }
-  },
-
-  _setLocale() {
-    get(this, 'moment').setLocale(momentLocale(get(this, 'intl.primaryLocale')));
   }
 });

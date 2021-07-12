@@ -1,0 +1,41 @@
+{{#bootstrap/bs-modal
+  id=modalId
+  onCreate=(perform updatePost)
+  onClose=onClose as |modal|}}
+  {{#modal.header}}
+    <h3 class="text-xs-center">
+      {{t "components.stream-feed.lock-post.header"}}
+    </h3>
+    <div class="alert alert-danger alert-slim">
+      <small>{{t "components.stream-feed.lock-post.notice"}}</small>
+    </div>
+  {{/modal.header}}
+
+  {{#modal.body}}
+    <p>{{t "components.stream-feed.lock-post.reason"}}</p>
+
+    {{! Reason Select }}
+    <div class="m-b-1">
+      {{#power-select
+        renderInPlace=true
+        searchEnabled=false
+        selected=reason
+        options=reasons
+        placeholder="Reason"
+        onchange=(action (mut reason)) as |reason|
+      }}
+        {{reason}}
+      {{/power-select}}
+    </div>
+  {{/modal.body}}
+
+  {{#modal.footer}}
+    <button class="button button--primary btn-lg btn-block" disabled={{unless canSubmit "disabled"}} onclick={{perform createReport}}>
+      {{#if createReport.isRunning}}
+        {{loading-spinner size="small"}}
+      {{else}}
+        {{t "components.stream-feed.lock-post.submit"}}
+      {{/if}}
+    </button>
+  {{/modal.footer}}
+{{/bootstrap/bs-modal}}

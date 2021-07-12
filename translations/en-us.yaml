@@ -520,6 +520,15 @@ components:
       edit: "Edit Review"
       delete: "Delete Review"
       report: "Report Review"
+    lock-post:
+      header: "Lock Post"
+      notice: "Only Community Moderators can unlock posts."
+      reason: "Please give a reason for locking this post."
+      submit: "Lock"
+    unlock-post:
+      title: "Unlock Post"
+      text: "Do you really want to unlock this post?"
+      submit: "Unlock"
   users:
     ban:
       title: "Are you sure you want to ban this user?"

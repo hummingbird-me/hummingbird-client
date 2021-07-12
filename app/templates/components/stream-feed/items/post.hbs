@@ -279,8 +279,9 @@
             {{/if}}
           {{/if}}
 
-          {{! Editing/Deleting Options }}
+          {{! Editing/Locking/Deleting Options }}
           {{#if canEditPost}}
+            {{! Edit Posts }}
             <a class="dropdown-item" href="#" {{action (toggle "editModalOpened" this)}}>{{t "components.stream-feed.post.edit"}}</a>
             {{#if editModalOpened}}
               {{to-elsewhere named="modal" send=(component "stream-feed/edit-post"
@@ -290,6 +291,33 @@
               )}}
             {{/if}}
 
+            {{! (Un)Lock Posts. Author and Moderators can lock, only moderators can unlock posts }}
+            {{#if (and post.isLocked (can "view admin"))}}
+              <a class="dropdown-item" href="#" {{action (toggle "unlockModalOpened" this)}}>
+                {{t "components.stream-feed.unlock-post.header"}}
+              </a>
+              {{#if unlockModalOpened}}
+                {{to-elsewhere named="modal" send=(component "modals/confirm-action"
+                  onConfirm=(queue (action "unlockPost") (toggle-action "unlockModalOpened" this))
+                  onClose=(toggle-action "unlockModalOpened" this)
+                  title=(t "components.stream-feed.unlock-post.title" locked=true)
+                  text=(t "components.stream-feed.unlock-post.text" locked=true)
+                )}}
+              {{/if}}
+            {{else}}
+              <a class="dropdown-item" href="#" {{action (toggle "lockModalOpened" this)}}>
+                {{t "components.stream-feed.lock-post.header"}}
+              </a>
+              {{#if lockModalOpened}}
+                {{to-elsewhere named="modal" send=(component "stream-feed/lock-post"
+                  post=post
+                  onClose=(toggle-action "lockModalOpened" this)
+                )}}
+                {{! onConfirm=(queue (action "lockPost") (toggle-action "lockModalOpened" this)) }}
+              {{/if}}
+            {{/if}}
+
+            {{! Delete Posts }}
             <a class="dropdown-item" href="#" {{action (toggle "deleteModalOpened" this)}}>{{t "components.stream-feed.post.delete"}}</a>
             {{#if deleteModalOpened}}
               {{to-elsewhere named="modal" send=(component "modals/confirm-action"
